@@ -18,17 +18,29 @@ def task1():
 
     inStr = ''
 
-    for i in range(maxCount + 1):
+    for i in range(maxCount):
         for keys in chars.keys():
-            if i < maxCount:
-                if i < maxCount - chars[keys]:
-                    inStr += ' '
-                else:
-                    inStr += '#'
+            if i < maxCount - chars[keys]:
+                inStr += ' '
             else:
-                inStr += str(keys)
-
+                inStr += '#'
         inStr += '\n'
+
+    # for i in range(maxCount + 1):
+    #     for keys in chars.keys():
+    #         if i < maxCount:
+    #             if i < maxCount - chars[keys]:
+    #                 inStr += ' '
+    #             else:
+    #                 inStr += '#'
+    #         else:
+    #             inStr += str(keys)
+    #
+    #     inStr += '\n''
+
+    for item in chars:
+        inStr += item
+
     # КАК МНЕ ЭТО ИСПОЛЬЗОВАТЬ?
     # ''.join('{}{}'.format(key, val) for key, val in chars.items())
     #
