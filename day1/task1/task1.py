@@ -1,4 +1,3 @@
-import re
 
 
 def task1():
@@ -30,6 +29,9 @@ def task1():
                 inStr += str(keys)
 
         inStr += '\n'
+    # КАК МНЕ ЭТО ИСПОЛЬЗОВАТЬ?
+    # ''.join('{}{}'.format(key, val) for key, val in chars.items())
+    #
     print(inStr)
 
 task1()
