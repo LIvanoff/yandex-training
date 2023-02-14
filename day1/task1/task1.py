@@ -1,8 +1,5 @@
 
 
-def compute_cubic2():
-  return [number**3 for number in a_long_list]
-
 def task1():
 
     with open("input.txt") as f:
@@ -28,11 +25,11 @@ def task1():
                 inStr += '#'
         inStr += '\n'
 
-    # for item in chars:
-    #     inStr += item
+    for item in chars:
+        inStr += item
 
 
-    inStr += ''.join(chars)
+    # inStr += ''.join(chars)
     print(inStr)
 
 task1()
