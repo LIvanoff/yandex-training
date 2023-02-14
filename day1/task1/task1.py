@@ -5,7 +5,8 @@ def task1():
     with open("input.txt") as f:
         s = f.read()
 
-    s = s.replace('\n', '').replace(' ', '')
+    s = list(s)
+    s = list(filter(lambda sym: sym != ' ' and sym != '\n', s))
 
     chars = dict.fromkeys(s, 0)
     for c in s:
@@ -27,7 +28,6 @@ def task1():
 
     for item in chars:
         inStr += item
-
 
     # inStr += ''.join(chars)
     print(inStr)
