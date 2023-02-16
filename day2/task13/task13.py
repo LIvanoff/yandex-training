@@ -1,5 +1,4 @@
 
-
 def task13():
     with open("input.txt") as f:
         s = f.read()
