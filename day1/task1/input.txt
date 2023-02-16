@@ -1,4 +1,23 @@
-Twas brillig, and the slithy toves
-Did gyre and gimble in the wabe;
-All mimsy were the borogoves,
-And the mome raths outgrabe.
+nline Multi-Object Tracking (MOT) has wide applications in time-critical video analysis scenarios, such as
+robot navigation and autonomous driving. In trackingby-detection, a major challenge of online MOT is how to
+robustly associate noisy object detections on a new video
+frame with previously tracked objects. In this work, we
+formulate the online MOT problem as decision making in
+Markov Decision Processes (MDPs), where the lifetime of
+an object is modeled with a MDP. Learning a similarity
+function for data association is equivalent to learning a policy for the MDP, and the policy learning is approached in
+a reinforcement learning fashion which benefits from both
+advantages of offline-learning and online-learning for data
+association. Moreover, our framework can naturally handle
+the birth/death and appearance/disappearance of targets by
+treating them as state transitions in the MDP while leveraging existing online single object tracking methods. We conduct experiments on the MOT Benchmark [24] to verify the
+effectiveness of our method.
+or tracking-by-detection in the online mode, the major challenge is how to associate noisy object detections
+in the current video frame with previously tracked objects.
+The basis for any data association algorithm is a similarity
+function between object detections and targets. To handle
+ambiguities in association, it is useful to combine different
+cues in computing the similarity, such as appearance, motion, and location. Most previous works rely on heuristically selected parametric models for the similarity function
+and tune these parameters by cross-validation, which is not
+scalable to the number of features and does not necessarily
+guarantee generalization power of the model

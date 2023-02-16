@@ -12,7 +12,8 @@ def task1():
     for c in s:
         chars[c] += 1
 
-    chars = dict(sorted(chars.items()))
+    # chars = dict(sorted(chars.values()))
+    chars = dict(reversed(sorted(chars.items(), key = lambda item: item[1])))
 
     maxCount = max(chars.values())
 
