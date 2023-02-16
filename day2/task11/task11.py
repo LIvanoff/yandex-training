@@ -2,9 +2,6 @@ class Stack(object):
     def __init__(self):
         self.stack = None
 
-    def __int__(self):
-        self.stack: list
-
     def push(self, ch):
         self.stack.insert(len(self.stack), ch)
 
