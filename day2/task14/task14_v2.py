@@ -18,7 +18,7 @@ def task14():
         dead_stack.insert(0, tmp)
 
     while len(dead_stack) > 0:
-        if len(second_railway) !=0:
+        if len(second_railway) != 0:
             if dead_stack[0] < second_railway[-1]:
                 print('NO')
                 break
@@ -26,6 +26,7 @@ def task14():
         dead_stack.pop(0)
         if len(dead_stack) == 0:
             print('YES')
+        print(second_railway)
 
 
 task14()
