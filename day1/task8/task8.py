@@ -1,5 +1,3 @@
-import numpy as np
-
 
 def task8():
     with open("input.txt") as coord_file:
@@ -11,14 +9,9 @@ def task8():
     for coord_id in range(len(coords_array)):
         coords_array[coord_id] = list(map(int, coords_array[coord_id]))
     coords_array.pop(0)
-    print(coords_array)
-    a = np.array(coords_array)
-    a = a[a[:, 0].argsort()]
-    x0 = a[0][0]
-    x1 = a[len(a)-1][0]
-    a = a[a[:, 1].argsort()]
-    y0 = a[0][1]
-    y1 = a[len(a) - 1][1]
-    print(str(x0) + " " + str(y0) + " " + str(x1) + " " + str(y1))
+    row0 = list([row[0] for row in coords_array])
+    row1 = list([row[1] for row in coords_array])
+
+    print(str(min(row0)) + " " + str(min(row1)) + " " + str(max(row0)) + " " + str(max(row1)))
 
 task8()
