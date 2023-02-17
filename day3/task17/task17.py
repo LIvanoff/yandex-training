@@ -1,3 +1,4 @@
+
 def check_par(card1, card2):
     if card1 == 0 and card2 == 9:
         return 9, 0
@@ -8,9 +9,12 @@ def check_par(card1, card2):
 
 
 def task17():
-    with open("input.txt") as f:
+    with open("input.txt", 'r') as f:
         first = f.readline()
         second = f.readline()
+
+    first = first.replace(' \n', '')
+    second = second.replace(' \n', '')
 
     first = list(map(int, first.split(' ')))
     second = list(map(int, second.split(' ')))
@@ -24,11 +28,9 @@ def task17():
         if card_player1 > card_player2:
             first.append(first.pop(0))
             first.append(second.pop(0))
-
         elif card_player1 < card_player2:
-            second.append(second.pop(0))
             second.append(first.pop(0))
-
+            second.append(second.pop(0))
         if len(second) < 1:
             print('first ' + str(count))
             break
