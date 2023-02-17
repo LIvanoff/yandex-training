@@ -20,6 +20,8 @@ def task14():
                     break
             second_railway.insert(len(second_railway), dead_stack[0])
             dead_stack.pop(0)
+        if not flag:
+            break
         dead_stack.insert(0, tmp)
 
     while len(dead_stack) > 0 and flag:
