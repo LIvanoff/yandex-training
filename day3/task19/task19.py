@@ -3,8 +3,12 @@ class Heap(object):
     def __init__(self):
         self.heap = []
 
+    def sort(self):
+        pass
+
     def insert(self, num):
         self.heap.append(num)
+        self.sort()
 
     def extract(self):
         return
