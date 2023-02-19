@@ -17,27 +17,41 @@ class Heap(object):
                 break
         self.heap[limit] = max
 
-    def heapify(self, pos):
+    def end_heapify(self, pos):
+        limit = len(self.heap)
+        min_son_index = pos * 2 + 1
+        if self.heap[pos] < self.heap[pos * 2 + 1]:
+            self.heap[pos], self.heap[pos * 2 + 1] = self.heap[pos * 2 + 1], self.heap[pos]
+            pos = min_son_index
 
-        while pos * 2 + 1 < len(self.heap):
+        while pos * 2 + 2 < limit:
             min_son_index = pos * 2 + 1
-            if pos * 2 + 2 < len(self.heap):
-                if self.heap[pos * 2 + 2] > self.heap[min_son_index]:
-                    min_son_index = pos * 2 + 2
-                if self.heap[pos] < self.heap[min_son_index]:
-                    self.heap[pos], self.heap[min_son_index] = self.heap[min_son_index], self.heap[pos]
-                    pos = min_son_index
-            elif pos * 2 + 1 < len(self.heap):
-                if self.heap[pos] < self.heap[min_son_index]:
-                    self.heap[pos], self.heap[min_son_index] = self.heap[min_son_index], self.heap[pos]
-                    pos = min_son_index
+            max_son_index = min_son_index + 1
+            if self.heap[max_son_index] > self.heap[min_son_index]:
+                min_son_index = max_son_index
+            if self.heap[pos] < self.heap[min_son_index]:
+                self.heap[pos], self.heap[min_son_index] = self.heap[min_son_index], self.heap[pos]
+                pos = min_son_index
+            else:
+                break
+
+    def heapify(self, pos):
+        while pos * 2 + 2 < len(self.heap):
+            min_son_index = pos * 2 + 1
+            if self.heap[pos * 2 + 2] > self.heap[min_son_index]:
+                min_son_index = pos * 2 + 2
+            if self.heap[pos] < self.heap[min_son_index]:
+                self.heap[pos], self.heap[min_son_index] = self.heap[min_son_index], self.heap[pos]
+                pos = min_son_index
             else:
                 break
 
     def heapsort(self, array):
         self.heap = array
         limit = (len(self.heap) - 2) // 2
-        for pos in range(limit, -1, -1):
+        if len(self.heap) % 2 == 0:
+            self.end_heapify(limit)
+        for pos in range(len(self.heap) - 1, -1, -1):
             self.heapify(pos)
 
         for i in range(len(self.heap)):
